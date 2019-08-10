@@ -127,11 +127,17 @@ export default class SearchScreen extends React.Component {
   renderItem({ item }) {
     console.log(item);
     return (
-      <View>
-        <Image style={styles.image} source={{ uri: item.thumbnailUrl }} />
-        <Text>{item.name}</Text>
-      </View>
+      <TouchableOpacity onPress={this.navigateToCharacterScreen}>
+        <View>
+          <Image style={styles.image} source={{ uri: item.thumbnailUrl }} />
+          <Text>{item.name}</Text>
+        </View>
+      </TouchableOpacity>
     );
+  }
+
+  navigateToCharacterScreen() {
+    this.props.navigation.navigate("Character");
   }
   render() {
     return (
